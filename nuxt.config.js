@@ -9,8 +9,8 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - CRUD-operation',
-    title: 'CRUD-operation',
+    titleTemplate: '%s TEKEGE',
+    title: 'TEKEGE PROJECT',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
