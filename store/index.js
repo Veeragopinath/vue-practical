@@ -116,6 +116,7 @@ export const actions = {
     // })
     
     .then((res) => {
+      debugger
       dispatch('getSkillList');
       return res;
      

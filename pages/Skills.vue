@@ -29,6 +29,7 @@
           hide-default-footer
           :items-per-page="itemsPerPage"
           :page.sync="page"
+          @page-count="pageCount = $event"
         >
           <template #[`item.number`]="{ item }">
             <span class="number-style">
@@ -107,14 +108,15 @@ export default {
     },
     addSkill(skill) {
       debugger;
-      try {
-        this.createSkill(skill).then((res) => {
-          this.skillAddMode = false;
-          alert("Skill created successfully");
-        });
-      } catch {
-        alert("something went wrong");
-      }
+
+      this.createSkill(skill).then((res) => {
+        this.skillAddMode = false;
+        if (res.status === 201) {
+          alert("skill created succesfully");
+        } else {
+          alert(res.message);
+        }
+      });
     },
 
     deleteUserDialog(item) {

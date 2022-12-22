@@ -114,13 +114,13 @@ export default {
     addUser(user) {
       this.createUser(user).then((res) => {
         debugger;
+        this.userAddMode = false;
         if (res.status === 201) {
           alert("user created succesfully");
         } else {
           alert(res.message);
         }
       });
-      this.userAddMode = false;
     },
 
     deleteUserDialog(item) {
