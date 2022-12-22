@@ -27,8 +27,9 @@
           fixed-header
           :search="search"
           hide-default-footer
-          :items-per-page="itemsPerPage"
           :page.sync="page"
+          :items-per-page="itemsPerPage"
+          @page-count="pageCount = $event"
         >
           <template #[`item.name`]="{ item }">
             <span class="number-style">
@@ -50,12 +51,7 @@
         ></v-sheet
       >
       <div class="pt-1 pb-1">
-        <v-pagination
-          class="mt-2 mb-2"
-          v-model="page"
-          :total-visible="5"
-          :length="pageCount"
-        >
+        <v-pagination class="mt-2 mb-2" v-model="page" :length="pageCount">
         </v-pagination>
       </div>
       <v-dialog
@@ -89,12 +85,13 @@ export default {
       Headers: userHeaders,
 
       search: "",
-      pageCount: 10,
+
       userAddMode: false,
       deleteDialog: false,
       userName: "",
-      itemsPerPage: 5,
       page: 1,
+      pageCount: 0,
+      itemsPerPage: 5,
     };
   },
   computed: {
@@ -117,7 +114,11 @@ export default {
     addUser(user) {
       this.createUser(user).then((res) => {
         debugger;
-        alert(res.message);
+        if (res.status === 201) {
+          alert("user created succesfully");
+        } else {
+          alert(res.message);
+        }
       });
       this.userAddMode = false;
     },

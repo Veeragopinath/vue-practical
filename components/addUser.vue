@@ -10,7 +10,7 @@
               v-model="form.first_name"
               outlined
               dense
-              :rules="[rules.required, rules.name]"
+              :rules="[rules.required, rules.name, rules.nameCase]"
               label="Name"
               required
             ></v-text-field>
@@ -20,7 +20,7 @@
               v-model="form.last_name"
               outlined
               dense
-              :rules="[rules.required, rules.name]"
+              :rules="[rules.required, rules.name, rules.nameCase]"
               label="Sur Name"
               required
             ></v-text-field>
@@ -30,8 +30,7 @@
               v-model.number="form.extension"
               outlined
               dense
-              type="number"
-              :rules="[rules.required]"
+              :rules="[rules.required, rules.number, rules.extension]"
               label="extension"
               required
             ></v-text-field>
@@ -85,14 +84,15 @@
         </v-row>
         <v-row>
           <v-col md="6">
-            <v-text-field
+            <v-combobox
               v-model="form.location"
+              :items="locations"
               outlined
               dense
-              :rules="[rules.required]"
+              :rules="[rules.required, rules.alphabet]"
               label="Location"
               required
-            ></v-text-field>
+            ></v-combobox>
           </v-col>
           <v-col md="6">
             <v-combobox
@@ -148,8 +148,9 @@ export default {
     return {
       rules,
       form: {},
-      Roles: ["Admin", "Caller"],
-      timezones: ["Asia/Kolkata", "America/New_York"],
+      Roles: ["admin", "caller"],
+      timezones: ["AMERICA/NEW_YORK"],
+      locations: ["Default"],
     };
   },
   computed: {

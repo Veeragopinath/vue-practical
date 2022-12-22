@@ -6,5 +6,9 @@ export const rules = {
   number: (v) => !v || /^(\d+)$/.test(v) || 'Enter a valid number',
   name: (v) =>
     v => v.length <= 10 || 'Name must be less than 10 characters',
-
+  nameCase:(v)=> (/^[A-Z]+$/.test(v)) || 'Name must be in upper case',
+  extension:(v) =>  (/^\d{3}$/.test(v)) || 'extension must be in 3 digits',
+  number: (v) => !v || /^(\d+)$/.test(v) || 'Enter a valid number',
+  alphabet: (v) =>
+  (/^[A-Za-z]+$/.test(v)) || 'Name should be valid',
 };

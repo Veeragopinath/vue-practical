@@ -73,8 +73,10 @@ export const actions = {
         },
       }
     )
+    
     // })
-    .then(() => {
+    .then((res) => {
+      return res;
       dispatch('getUserList');
     });
   },
