@@ -76,8 +76,9 @@ export const actions = {
     
     // })
     .then((res) => {
-      return res;
+     
       dispatch('getUserList');
+      return res;
     });
   },
   getSkillList({ commit , state,dispatch }) {
@@ -114,8 +115,10 @@ export const actions = {
     )
     // })
     
-    .then(() => {
+    .then((res) => {
       dispatch('getSkillList');
+      return res;
+     
     });
   },
   getCategoryList({dispatch, commit , state }) {
