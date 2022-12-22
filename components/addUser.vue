@@ -168,7 +168,7 @@ export default {
       this.getSkillList();
     },
     saveUser() {
-      debugger;
+      
       if (this.$refs.form.validate()) {
         this.$emit("submitForm", this.form);
         this.$refs.form.reset();

@@ -102,19 +102,15 @@ export default {
   methods: {
     ...mapActions(["getSkillList", "createSkill", "getCategoryList"]),
     initialise() {
-      debugger;
-
       this.getSkillList();
     },
     addSkill(skill) {
-      debugger;
-
       this.createSkill(skill).then((res) => {
         this.skillAddMode = false;
         if (res.status === 201) {
           alert("skill created succesfully");
         } else {
-          alert(res.message);
+          alert("something went wrong");
         }
       });
     },

@@ -20,7 +20,7 @@ export const getters = {
 export const actions = {
 
   userLogin({ commit , getters}){
-    debugger
+    
     return  this.$axios
     .post(
       `${endpoints.LOGIN}`,
@@ -57,11 +57,11 @@ export const actions = {
     });
   },
   createUser({ dispatch,state },user){
-    debugger
+    
     // state.userdetails={...user}
     dispatch("userLogin")
     // .then(({state})=>{
-      debugger
+      
       return  this.$axios
     .post(
       `${endpoints.CREATE_USER}`,
@@ -99,7 +99,7 @@ export const actions = {
     });
   },
   createSkill({ dispatch ,state},skill){
-    debugger
+    
     // state.skillDetails = skill;
     // dispatch("userLogin").then(()=>{
       return  this.$axios
@@ -116,7 +116,7 @@ export const actions = {
     // })
     
     .then((res) => {
-      debugger
+      
       dispatch('getSkillList');
       return res;
      
@@ -142,9 +142,10 @@ export const actions = {
   deleteUser({ dispatch }, userId) {
     return this.$axios
       .delete(`${endpoints.DELETE_USER}/${userId}`)
-      // .then(() => {
-      //   dispatch('getTaskTypes');
-      // });
+      .then((res) => {
+        dispatch('getUserList');
+        return res;
+      });
   },
   // getCategoryById({ dispatch }, categoryId) {
   //   return this.$axios
@@ -157,7 +158,7 @@ export const actions = {
 
 export const mutations = {
   setUserDetails(state,userDetails){
-    debugger
+    
     state.username = userDetails.username;
     state.password = userDetails.password;
      

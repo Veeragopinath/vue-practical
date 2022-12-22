@@ -113,12 +113,11 @@ export default {
     },
     addUser(user) {
       this.createUser(user).then((res) => {
-        debugger;
         this.userAddMode = false;
         if (res.status === 201) {
           alert("user created succesfully");
         } else {
-          alert(res.message);
+          alert("something went wrong");
         }
       });
     },
@@ -130,6 +129,11 @@ export default {
     },
     deleteUser() {
       this.deleteUser(this.userToBeDeletedId).then((res) => {
+        if (res === 200) {
+          alert("user deleted sucessfully");
+        } else {
+          alert("something went wrong");
+        }
         this.userToBeDeletedId = "";
         this.deleteDialog = false;
         this.initialise();

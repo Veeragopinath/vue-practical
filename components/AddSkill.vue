@@ -72,8 +72,6 @@ export default {
     return {
       rules,
       form: {},
-      Roles: ["Admin", "Caller"],
-      timezones: ["Asia/Kolkata", "America/New_York"],
     };
   },
   computed: {
@@ -91,7 +89,6 @@ export default {
       this.getCategoryList();
     },
     saveSkill() {
-      debugger;
       if (this.$refs.form.validate()) {
         this.$emit("submitForm", this.form);
         this.$refs.form.reset();

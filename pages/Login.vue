@@ -67,7 +67,7 @@ export default {
         });
         try {
           this.userLogin().then((res) => {
-            debugger;
+            
             if (res.status === "login") {
               this.$router.push(`/Skills`);
             }
