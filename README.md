@@ -50,7 +50,3 @@ This directory contains your static files. Each file inside this directory is ma
 
 Example: `/static/robots.txt` is mapped as `/robots.txt`.
 
-### `db.json`
-
-This file contains your data. The json-server will serve the data from the db.json file and Axios will be able to consume it.
-```
