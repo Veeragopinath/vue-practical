@@ -129,7 +129,7 @@ export const actions = {
         headers: {
           "Content-Type": "application/json;charset=UTF-8",
           Authorization: state.authToken,
-        },
+        }
       })
     })
     
@@ -139,13 +139,24 @@ export const actions = {
     
     });
   },
-  deleteUser({ dispatch }, userId) {
-    return this.$axios
-      .delete(`${endpoints.DELETE_USER}/${userId}`)
+  deleteUserFromUsers({ dispatch }, userId) {
+    dispatch("userLogin").then(()=>{
+      return this.$axios
+      .delete(`${endpoints.DELETE_USER}/${userId}`,{},
+      {
+        headers: {
+          "Content-Type": "application/json;charset=UTF-8",
+          Authorization: state.authToken,
+        },
+      })
       .then((res) => {
         dispatch('getUserList');
         return res;
-      });
+      })
+    })
+
+
+    
   },
   // getCategoryById({ dispatch }, categoryId) {
   //   return this.$axios

@@ -114,19 +114,6 @@ export default {
         }
       });
     },
-
-    deleteUserDialog(item) {
-      this.userName = item.name;
-      this.deleteDialog = true;
-      this.userToBeDeletedId = item.id;
-    },
-    deleteUser() {
-      this.$axios.delete(`/users/${this.userToBeDeletedId}`).then((res) => {
-        this.userToBeDeletedId = "";
-        this.deleteDialog = false;
-        this.initialise();
-      });
-    },
   },
 };
 </script>

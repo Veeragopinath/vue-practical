@@ -103,7 +103,7 @@ export default {
     this.initialise();
   },
   methods: {
-    ...mapActions(["getUserList", "createUser", "deleteUser"]),
+    ...mapActions(["getUserList", "createUser", "deleteUserFromUsers"]),
     initialise() {
       try {
         this.getUserList();
@@ -128,7 +128,7 @@ export default {
       this.userToBeDeletedId = item.id;
     },
     deleteUser() {
-      this.deleteUser(this.userToBeDeletedId).then((res) => {
+      this.deleteUserFromUsers(this.userToBeDeletedId).then((res) => {
         if (res === 200) {
           alert("user deleted sucessfully");
         } else {
